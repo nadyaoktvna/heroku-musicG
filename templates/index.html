@@ -7,7 +7,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="Free Website Template" name="keywords">
   <meta content="Free Website Template" name="description">
-  
+
 
   <!-- Favicon -->
   <link href="{{ url_for('static', filename='img/favicon.ico') }}" rel="icon">
@@ -54,9 +54,9 @@
       <div class="row align-items-center">
         <div class="col-sm-12 col-md-6">
           <div class="hero-text wow slideInUp">
-            <h1>Music Genre Prediction and Recommendation</h1>
+            <h1>Music Genre Prediction</h1>
             <p>
-              Prediksi genre lagu dan dapatkan rekomendasi lagunya!
+              Prediksi genre lagu!
             </p>
             <div class="hero-btn">
               <a class="btn" href="#predict">Predict</a>
@@ -91,30 +91,20 @@
           <br>
           <!-- Main Input For Receiving Query to our ML -->
           <form action="{{ url_for('predict')}}" method="post" enctype="multipart/form-data">
-            <label for="form-label" class="form-label"></label>
-            <input class="form-control" type="file" name="file" placeholder="Audio" required="required" accept=".wav" id="upload" style="padding: 2px 0px 0px 3px;" />
+            <input class="form-control" type="file" name="file" placeholder="Audio" required="required" accept=".wav"
+              id="upload" style="padding: 2px 0px 0px 3px;" />
             <br>
+            <audio id="audio" controls>
+              <source src="" id="src" />
+            </audio>
+            <br><br>
             <button type="submit" class="btn">Predict</button>
           </form>
         </div>
         <div class="blog-text">
           {% if prediction %}
-          <h2>Prediksi genre lagu adalah {{prediction}}.</h2>
+          <h2>Prediksi genre lagu adalah <b>{{prediction}}</b></h2>
           {% endif %}
-        </div>
-      </div>
-      <div class="section-header text-center wow zoomIn">
-        <h2 style="margin-top: 60px; margin-bottom: 20px;">Rekomendasi Lagu</h2>
-        <table>
-          <!--Displaying table recommendation-->
-          {% for table in tables %}
-          {{titles[loop.index]}}
-          {{ table|safe }}
-          {% endfor %}
-        </table>
-        <br>
-        <div class="pagination">
-          <ol id="numbers" class="page-link"></ol>
         </div>
       </div>
     </div>
@@ -144,7 +134,7 @@
             <p>
               Website ini bisa memprediksi hingga 10 genre yaitu Blues, Classical, Country, Disco, Hiphop,
               Jazz, Metal, Pop, Reggae, dan Rock. Tentu prediksi genre ini tidak selalu tepat karena lagu
-              itu multi genre, tapi selamat mencoba!
+              bisa terdiri dari banyak genre, tapi selamat mencoba!
             </p>
           </div>
         </div>
@@ -160,18 +150,18 @@
       <div class="container">
         <div class="footer-info">
           <a href="index.html" class="footer-logo">M<span>usic</span>G</a>
-          <h3>M014V6060 Ayu Kadek Nadya Oktaviana</h3>
-          <h3>M299R5310 Muhammad Aldi Surya Putra</h3>
+          <h3>Ayu Kadek Nadya Oktaviana</h3>
           <div class="footer-social">
-            <a href="https://github.com/aldysp34/Music-Classification-and-Recommendation"><i
-                class="fab fa-github"></i></a>
+            <a href="https://github.com/nadyaoktvna/musicG"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/ayu-kadek-nadya-oktaviana-92bb25206/"><i
+                class="fab fa-linkedin"></i></a>
           </div>
         </div>
       </div>
       <div class="container copyright">
         <div class="row">
           <div class="col-md-6">
-            <p>&copy; <a href="#">TIM CDS-109</a>, Pengembangan Machine Learning dan Front-End Web</p>
+            <p>&copy; <a href="#">MusicG</a>, Informatika 2021</p>
           </div>
           <div class="col-md-6">
             <p>Designed By <a href="https://htmlcodex.com">HTML Codex</a></p>
